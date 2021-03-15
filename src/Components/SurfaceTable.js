@@ -6,9 +6,9 @@ const SurfaceTable = (props) => {
         {id:'surfaceName', label:'Surface Name'},
         {id:'sport', label:'Sport'},
         {id:'status', label:'Status'}];
-        
+
     return(
-        <>{props.surfaceData.length > 0 ?<DataTable selectHandler={props.selectSurfaceHandler} selectedRow={props.selectedSurface} tableHead={tableHead} surfaceData={props.surfaceData}/> : null}</>
+        <>{props.surfaceData.length > 0 ?<DataTable selectHandler={props.selectSurfaceHandler} selectedRow={props.selectedSurface} tableHead={tableHead} tableData={props.surfaceData}/> : null}</>
     );
 }
 

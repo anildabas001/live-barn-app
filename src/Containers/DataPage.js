@@ -2,10 +2,11 @@ import React, {useEffect, useState} from 'react';
 import Paper from '@material-ui/core/Paper';
 import DetailsPanel from '../Components/DetailsPanel';
 import Grid from '@material-ui/core/Grid';
-import DataTable from '../Components/DataTable';
 import SurfaceTable from '../Components/SurfaceTable';
 import ServerTable from '../Components/ServerTable';
 import DataTabs from '../Components/DataTabs';
+import Toolbar from '@material-ui/core/Toolbar';
+import InputLabel from '@material-ui/core/InputLabel';
 
 const DataPage = () => {
     const [surfaceData, updateSurfaceData] = useState({
@@ -69,21 +70,25 @@ const DataPage = () => {
         updateSelectedSurface(selectedSurface);
     }
 
-    const SelectComponent = selectedComponent.id === 'surfaces' ? <SurfaceTable surfaceData={surfaceData.surfaceData} selectSurfaceHandler={selectSurfaceHandler} selectedSurface={selectedSurface} /> : <ServerTable />
+    let SelectComponent = selectedComponent.id === 'surfaces' ? <SurfaceTable surfaceData={surfaceData.surfaceData} selectSurfaceHandler={selectSurfaceHandler} selectedSurface={selectedSurface} /> : <ServerTable serverData={surfaceData.serverData} selectSurfaceHandler={selectSurfaceHandler} selectedSurface={selectedSurface} />
 
-            
-    console.log(surfaceData);
+    console.log(surfaceData.serverData);   
 
     return (
         <Paper style={{minHeight: '85vh', padding: '10px'}}>
              <Grid container spacing={3}>
                 <Grid item xs={12} sm={12} md={9}>
-                    <Paper>xs=12</Paper>
+                    <Toolbar>
+                    <InputLabel shrink htmlFor="bootstrap-input">
+                        Bootstrap
+                    </InputLabel>
+                    {/* <BootstrapInput defaultValue="react-bootstrap" id="bootstrap-input" /> */}
+                    </Toolbar>
                     <DataTabs tabId={selectedComponent.id} handleChange={handleChange}/>
                     {SelectComponent}
                 </Grid>
                 <Grid item xs={12} sm={12} md={3}>
-                    <DetailsPanel />
+                    <DetailsPanel details = {selectedSurface.id ? {...selectedSurface, serverIp: selectedSurface.server.ip4} : selectedSurface}/>
                 </Grid>
              </Grid>
         </Paper>

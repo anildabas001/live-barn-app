@@ -13,8 +13,9 @@ const useStyles = makeStyles(theme => ({
         // marginTop: theme.spacing(3),
         border: '2px solid #eee',
         maxHeight: '500px', 
-        '& thead th': {
-            padding: '12px',
+        '& thead th': {            
+            border: '1px solid #eee',
+            padding: '15px',
             fontWeight: 'bold',
             color: 'black',
             backgroundColor: '#eee'
@@ -23,17 +24,18 @@ const useStyles = makeStyles(theme => ({
             fontWeight: 300
         },
         '& tbody tr:hover': {
-            backgroundColor:'#fffbf2',
+            backgroundColor:'#64b5f6',
             cursor: 'pointer'
-        }
-    }
+        } 
+    },    
 }));
 
 
 const DataTable = (props) => {
     const classes = useStyles(0);
-    const tableRows = props.surfaceData;
-    const pages=[50, 100, tableRows.length];
+    const tableRows = props.tableData;
+    const pages=[10, 50, 100, tableRows.length].sort(function(a, b){return a - b});
+    console.log(pages);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setrowsPerPage] = useState(pages[page]);
 
@@ -51,8 +53,8 @@ const DataTable = (props) => {
     }
 
     return (<>
-    <TableContainer style={{maxHeight: '500px', marginTop: '15px', }} >
-        <Table stickyHeader aria-label="data table" className={classes.table}>
+    <TableContainer style={{maxHeight: '420px', marginTop: '15px', }} >
+        <Table stickyHeader aria-label="data table" className={classes.table} classes={{selected: classes.selected}}>
             <TableHead>
                 <TableRow>
                     {props.tableHead.map(headElement => (<TableCell key={headElement.id}>{headElement.label}</TableCell>))}
@@ -61,11 +63,12 @@ const DataTable = (props) => {
             <TableBody>
                 {tableRowsPaging().map((data, index) => {
                     return(
-                        <TableRow selected={props.selectedRow.id === data.id} onClick={(event) => props.selectHandler(event, data)} key={data.id}>
-                            <TableCell>{data.venueName}</TableCell>
+                        <TableRow selected={props.selectedRow.id === data.id} style={props.selectedRow.id === data.id ? {backgroundColor: '#2196f3'} : null} onClick={(event) => props.selectHandler(event, data)} key={data.id}>
+                            {/* <TableCell>{data.venueName}</TableCell>
                             <TableCell>{data.surfaceName}</TableCell>
                             <TableCell>{data.sport}</TableCell>
-                            <TableCell>{data.status}</TableCell>
+                            <TableCell>{data.status}</TableCell> */}
+                            {props.tableHead.map(headElement => (<TableCell style={props.selectedRow.id === data.id ? {color: '#fff'} : null} key={headElement.id}>{data[headElement.id]}</TableCell>))}
                         </TableRow>
                     )
                 })}
