@@ -50,8 +50,9 @@ const SideDrawer = (props) => {
     const open = props.open;
     const componentHandler = props.componentHandler;
     const selectedComponent = props.selectedComponent;
-    console.log(selectedComponent);
+
     const menuItems = [{name: 'Empty Page', id: 'emptyPage'}, {name: 'Data', id: 'dataPage'}];
+    
     const classes = useStyles();
 
     return(

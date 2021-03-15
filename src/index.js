@@ -5,11 +5,14 @@ import './index.css';
 import 'fontsource-roboto';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import GlobalStateManager from './Containers/GlobalStateManager';
 
 ReactDOM.render(
   <React.StrictMode>   
     <CssBaseline />
-    <App />  
+    <GlobalStateManager>
+      <App />  
+    </GlobalStateManager>
   </React.StrictMode>,
   document.getElementById('root')
 );

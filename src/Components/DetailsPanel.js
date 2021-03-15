@@ -17,7 +17,6 @@ const useStyles = makeStyles({
 
 const DetailsPanel = (props) => {
     const classes = useStyles();
-    console.log(props.details);
     const labels = [{name:'Venue Name', parameter: 'venueName'}, {name: 'Surface Name', parameter: 'surfaceName'}, {name:'Sport', parameter:'sport'}, {name: 'Status', parameter: 'status'}, {name: 'Server Ip', parameter: 'serverIp'}];
 
     return (
@@ -25,7 +24,7 @@ const DetailsPanel = (props) => {
             <List>
                 <ListItem style={{paddingBottom: '0px'}}>
               <ListItemText>
-                <Typography variant="h6" gutterBottom>
+                <Typography component="h6" gutterBottom>
                     Details
                 </Typography>                  
                 </ListItemText>
@@ -34,10 +33,10 @@ const DetailsPanel = (props) => {
             {labels.map((label, index) => (
             <ListItem key={label.name} >
               <ListItemText>
-                <Typography variant="p" gutterBottom style={{fontSize: '0.9rem'}}>
+                <Typography component="p" gutterBottom style={{fontSize: '0.9rem'}}>
                     {label.name}:
                 </Typography><br />
-                <Typography variant="block" gutterBottom style={{fontSize: '0.9rem'}}>
+                <Typography component="p" gutterBottom style={{fontSize: '0.9rem'}}>
                     {props.details[label.parameter]}
                 </Typography>                 
               </ListItemText>

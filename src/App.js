@@ -7,6 +7,7 @@ import DataPage from './Containers/DataPage';
 import './App.css';
 
 function App() {
+  
   const [openDrawer, updateDrawerState] = useState(true);
   const [component, changeComponent] = useState({
     component: EmptyPage,

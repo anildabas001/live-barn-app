@@ -1,5 +1,4 @@
 import React from 'react';
-import Drawer from '@material-ui/core/Drawer';
 import {makeStyles, useTheme} from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import clsx from 'clsx';
@@ -38,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
 const Header = (props) => {
     const shiftHeader = props.shiftHeader;
     const classes = useStyles();
-    const theme = useTheme();
 
     return(
         <AppBar style={{backgroundColor: '#2196f3'}} 

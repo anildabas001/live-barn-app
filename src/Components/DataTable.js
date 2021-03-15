@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {makeStyles} from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -10,7 +10,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 
 const useStyles = makeStyles(theme => ({
     table: {
-        // marginTop: theme.spacing(3),
         border: '2px solid #eee',
         maxHeight: '500px', 
         '& thead th': {            
@@ -32,12 +31,17 @@ const useStyles = makeStyles(theme => ({
 
 
 const DataTable = (props) => {
+
     const classes = useStyles(0);
+
     const tableRows = props.tableData;
     const pages=[10, 50, 100, tableRows.length].sort(function(a, b){return a - b});
-    console.log(pages);
     const [page, setPage] = useState(0);
-    const [rowsPerPage, setrowsPerPage] = useState(pages[page]);
+    const [rowsPerPage, setrowsPerPage] = useState(pages[0]);
+
+    useEffect(() => {
+        setrowsPerPage(pages[0]);
+    }, [tableRows.length]);
 
     const pageChangeHandler = (event, newPage) => {
         setPage(newPage);
@@ -63,11 +67,7 @@ const DataTable = (props) => {
             <TableBody>
                 {tableRowsPaging().map((data, index) => {
                     return(
-                        <TableRow selected={props.selectedRow.id === data.id} style={props.selectedRow.id === data.id ? {backgroundColor: '#2196f3'} : null} onClick={(event) => props.selectHandler(event, data)} key={data.id}>
-                            {/* <TableCell>{data.venueName}</TableCell>
-                            <TableCell>{data.surfaceName}</TableCell>
-                            <TableCell>{data.sport}</TableCell>
-                            <TableCell>{data.status}</TableCell> */}
+                        <TableRow selected={props.selectedRow.id === data.id} style={props.selectedRow.id === data.id ? {backgroundColor: '#2196f3'} : null} onClick={(event) => props.selectHandler(event, data)} key={data.id}>                            
                             {props.tableHead.map(headElement => (<TableCell style={props.selectedRow.id === data.id ? {color: '#fff'} : null} key={headElement.id}>{data[headElement.id]}</TableCell>))}
                         </TableRow>
                     )
