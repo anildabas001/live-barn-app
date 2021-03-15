@@ -1,5 +1,5 @@
 import React from 'react';
-import {makeStyles, useTheme} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import clsx from 'clsx';
 import Toolbar from '@material-ui/core/Toolbar';

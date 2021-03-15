@@ -39,8 +39,8 @@ const DataTable = (props) => {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setrowsPerPage] = useState(pages[0]);
 
-    useEffect(() => {
-        setrowsPerPage(pages[0]);
+    useEffect(() => {           
+        setrowsPerPage(pages[page]);        
     }, [tableRows.length]);
 
     const pageChangeHandler = (event, newPage) => {

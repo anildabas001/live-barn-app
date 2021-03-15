@@ -2,8 +2,7 @@ import React, {useState, useEffect} from 'react';
 import AppContext from '../AppContext/AppContext';
 
 const GlobalStateManager = (props) => {
-    let timer;
-
+    
     const [AppData, updateAppData] = useState({
         surfaceData: [],
         serverData: new Map()
@@ -12,7 +11,7 @@ const GlobalStateManager = (props) => {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        timer = setInterval(function fetchAppData(){
+        let timer = setInterval(function fetchAppData(){
         fetch('https://2hsjstzo71.execute-api.us-east-1.amazonaws.com/prod/livebarn-interview-project')
         .then(response => response.json())
         .then((data) => {

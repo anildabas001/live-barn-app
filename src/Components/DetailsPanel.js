@@ -35,8 +35,8 @@ const DetailsPanel = (props) => {
               <ListItemText>
                 <Typography component="p" gutterBottom style={{fontSize: '0.9rem'}}>
                     {label.name}:
-                </Typography><br />
-                <Typography component="p" gutterBottom style={{fontSize: '0.9rem'}}>
+                </Typography>
+                <Typography variant='body2' style={{fontSize: '0.9rem', marginTop: '0px', maeginBottom: '0px'}}>
                     {props.details[label.parameter]}
                 </Typography>                 
               </ListItemText>
