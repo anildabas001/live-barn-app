@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/live-barn-app/static/css/main.eb7ca368.chunk.css",
+    "main.js": "/live-barn-app/static/js/main.9203148a.chunk.js",
+    "main.js.map": "/live-barn-app/static/js/main.9203148a.chunk.js.map",
+    "runtime-main.js": "/live-barn-app/static/js/runtime-main.309276d1.js",
+    "runtime-main.js.map": "/live-barn-app/static/js/runtime-main.309276d1.js.map",
+    "static/css/2.2f41a567.chunk.css": "/live-barn-app/static/css/2.2f41a567.chunk.css",
+    "static/js/2.5badad1a.chunk.js": "/live-barn-app/static/js/2.5badad1a.chunk.js",
+    "static/js/2.5badad1a.chunk.js.map": "/live-barn-app/static/js/2.5badad1a.chunk.js.map",
+    "static/js/3.845807f8.chunk.js": "/live-barn-app/static/js/3.845807f8.chunk.js",
+    "static/js/3.845807f8.chunk.js.map": "/live-barn-app/static/js/3.845807f8.chunk.js.map",
+    "index.html": "/live-barn-app/index.html",
+    "static/css/2.2f41a567.chunk.css.map": "/live-barn-app/static/css/2.2f41a567.chunk.css.map",
+    "static/css/main.eb7ca368.chunk.css.map": "/live-barn-app/static/css/main.eb7ca368.chunk.css.map",
+    "static/js/2.5badad1a.chunk.js.LICENSE.txt": "/live-barn-app/static/js/2.5badad1a.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/live-barn-app/static/media/roboto-vietnamese-400-normal.52cebac0.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.309276d1.js",
+    "static/css/2.2f41a567.chunk.css",
+    "static/js/2.5badad1a.chunk.js",
+    "static/css/main.eb7ca368.chunk.css",
+    "static/js/main.9203148a.chunk.js"
+  ]
+}
